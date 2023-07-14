@@ -1,0 +1,201 @@
+8. a) Create a table which should contain at least the following fields: name, password, email-id, phone number (these should hold the data from the registration form).
+CREATE TABLE registration (
+uname varchar(25) NOT NULL, 
+pass varchar(25) NOT NULL, 
+email varchar(25) NOT NULL, 
+phno bigint(10) NOT NULL, 
+UNIQUE KEY (uname)
+);
+b) Write a PHP code to connect to that database and extract data from the table and display them. Insert the details of the users who register with the web site, whenever a new user clicks the submit button in the registration page (week2). Update user data, delete specific users.
+
+//regselect.html:
+<html>
+<body>
+<form method="POST" action="regselect.php">
+<table align="center" cellspacing="5">
+<tr>
+<td>Enter condition column name:</td>
+<td><input type="text" name="con"></td>
+</tr>
+<tr>
+<td>Enter condition value:</td>
+<td><input type="text" name="value"></td>
+</tr>
+<tr>
+<td><input type="submit" value="Select"></td>
+</tr>
+</table>
+</form>
+</body>
+</html>
+regselect.php:
+<?php
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $conditioncolumn = $_POST['con'];
+    $conditionvalue = $_POST['value'];
+    $hostname = 'localhost';
+    $username = 'root';
+    $password = '';
+    $database = 'mydb';
+    $conn = new mysqli($hostname, $username, $password, $database);
+    if ($conn->connect_error) {
+        die('Connection failed: ' . $conn->connect_error);
+    }
+
+    $sql = "SELECT * FROM registration";
+    if (!empty($conditioncolumn) && !empty($conditionvalue)) {
+        $sql .= " WHERE `$conditioncolumn` = '$conditionvalue'";
+    }
+    $result = $conn->query($sql);
+
+    if ($result && $result->num_rows > 0) {
+        echo "<table border='1'>";
+        echo "<tr><th>Name</th><th>Email ID</th><th>Phone Number</th></tr>";
+        while ($row = $result->fetch_assoc()) {
+            echo "<tr>";
+            echo "<td>" . $row["uname"] . "</td>";
+            echo "<td>" . $row["email"] . "</td>";
+            echo "<td>" . $row["phno"] . "</td>";
+            echo "</tr>";
+        }
+        echo "</table>";
+    } else {
+        echo "No records found<br>";
+    }
+
+    $conn->close();
+}
+?>
+
+//register.php:
+
+<?php
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $uname = $_POST['Name'];
+    $pass = $_POST['Pass'];
+    $mail = $_POST['mail'];
+    $phone = $_POST['phone'];
+    $hostname = 'localhost';
+    $username = 'root';
+    $password = '';
+    $database = 'mydb';
+    $conn = new mysqli($hostname, $username, $password, $database);
+    if ($conn->connect_error) {
+        die('Connection failed: ' . $conn->connect_error);
+    }
+   $sql = "INSERT INTO registration VALUES ('$uname','$pass','$mail','$phone')";
+
+if ($conn->query($sql) === TRUE) {
+        echo '<h2>Welcome dear '.$uname.'!!<br></h2>';
+        echo '<h3><b><i><a href="main.html">Go To Home Page</a></i></b></h3>';
+    } else {
+        echo "Error inserting data: " . $conn->error . "<br>";
+    }
+    $conn->close();
+}
+?>
+
+//Update.html:
+
+<html>
+<body>
+<form method="POST" action="update.php">
+  <table align="center">
+  <tr>
+  <td><label>Enter column name:</label></td>
+  <td><input type="text" name="field" required><br></td>
+  </tr>  
+  <tr>
+  <td><label>Enter new value:</label></td>
+  <td><input type="text" name="value" required><br></td>
+  </tr>
+  <tr>
+  <td><label>Enter condition column(LHS):</label></td>
+  <td><input type="text" name="lhs" required><br></td>
+  </tr>
+  <tr>
+  <td><label>Enter value(RHS):</label></td>
+  <td><input type="text" name="rhs" required><br></td>
+  </tr>
+  <tr>	
+  <td><input type="submit" value="Update Table"></td>
+  </tr>
+  </table>
+</form> 
+</body>
+</html>
+
+//update.php:
+
+<?php
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $columnname = $_POST['field'];
+    $newvalue = $_POST['value'];
+    $conditioncolumn = $_POST['lhs'];
+    $conditionvalue = $_POST['rhs'];
+    $hostname = 'localhost';
+    $username = 'root';
+    $password = '';
+    $database = 'mydb';
+    $conn = new mysqli($hostname, $username, $password, $database);
+    if ($conn->connect_error) {
+        die('Connection failed: ' . $conn->connect_error);
+    }
+
+    $sql = "UPDATE registration SET `$columnname` = '$newvalue' WHERE `$conditioncolumn` = '$conditionvalue'";
+
+    if ($conn->query($sql) === TRUE) {
+        echo "Table updated successfully<br>";
+    } else {
+        echo "Error updating table: " . $conn->error . "<br>";
+    }
+
+    $conn->close();
+}
+?>
+
+//Delete.html:
+
+<html>
+<body>
+<form method="POST" action="coldel.php">
+  <table align="center">
+  <tr>
+  <td><label>Enter condition column(LHS):</label></td>
+  <td><input type="text" name="lhs" required><br></td>
+  </tr>
+  <tr>
+  <td><label>Enter condition value(RHS):</label></td>
+  <td><input type="text" name="rhs" required><br></td>
+  </tr>
+  <tr>	
+  <td><input type="submit" value="Delete"></td>
+  </tr>
+  </table>
+</form> 
+</body>
+</html>
+
+//coldel.php:
+
+<?php
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $conditioncolumn = $_POST['lhs'];
+    $conditionvalue = $_POST['rhs'];
+    $hostname = 'localhost';
+    $username = 'root';
+    $password = '';
+    $database = 'mydb';
+    $conn = new mysqli($hostname, $username, $password, $database);
+    if ($conn->connect_error) {
+        die('Connection failed: ' . $conn->connect_error);
+    }
+    $sql = "DELETE FROM registration WHERE `$conditioncolumn` = '$conditionvalue'";
+    if ($conn->query($sql) === TRUE) {
+        echo "Row Deleted successfully<br>";
+    } else {
+        echo "Error updating table: " . $conn->error . "<br>";
+    }
+    $conn->close();
+}
+?>

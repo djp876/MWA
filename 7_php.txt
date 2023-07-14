@@ -1,0 +1,329 @@
+
+7. a) Write Program in PHP to demonstrate basics of PHP. 
+basic.php:
+<?php
+function reversDigits($num) {
+	$rev_num = 0;
+	while($num > 1) {
+		$rev_num = $rev_num * 10 + $num % 10;
+		$num = (int)$num / 10;
+	}
+	return $rev_num;
+}
+$num = 2345;
+echo "Original number is :".$num.'<br>';
+echo "Reverse of no. is: ", reversDigits($num);
+?>
+Output:
+
+b) Convert all the previous forms to PHP forms.
+form.html:
+<html>
+<head>
+<title>Student Registration</title>
+</head>
+<body>
+<style>
+body {background-color: #99ffff;}
+input[type=text]{
+  width: 75%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size:25px;
+}
+select{
+  width: 50%;
+  padding: 12px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+input[type=email]{
+  width: 75%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size:25px;
+}
+input[type=tel]{
+  width: 75%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size:16px;
+}
+input[type=date]{
+  width: 75%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size:20px;
+}
+input[type=submit] {
+  width: 40%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 10px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size:18px;
+}
+
+input[type=submit]:hover {
+  background-color: #339900;
+}
+
+input[type=reset] {
+  width: 100%;
+  background-color:#ffa64d;
+  color: black;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size:18px;
+}
+
+input[type=reset]:hover {
+  background-color: #ff6600;
+}
+
+label {
+  color: black;
+  padding: 8px;
+  font-size:20px;
+}
+</style>
+<h1 align="center" style="color:#000000;">Student Registration-2k23</h1>
+<form action="form.php" method="POST">
+  <table align="center">
+  <tr>
+  <td><label>First name:</label></td>
+  <td><input type="text" name="fname" required><br></td>
+  </tr>
+  <tr>
+  <td><label>Last name:</label></td>
+  <td><input type="text" name="lname" required><br></td>
+  </tr>
+  <tr>
+  <td><label>ID Number:</label></td>
+  <td><input type="text" name="id" required><br></td>
+  </tr>
+  <tr>
+  <td><label>DOB:</label></td>
+  <td><input type="date" required><br></td>
+  </tr>
+  <tr>
+  <td><label>Email ID:</label></td>
+  <td><input type="email" required><br></td>
+  </tr>
+  <tr>
+  <td><label>Phone Number:</label></td>
+  <td><input type="tel" id="phone" name="phone" placeholder="[6-9]x[0-9]xxxxxxxxx" pattern="[6-9]{1}[0-9]{9}" required></td>
+  </tr>
+  <tr>
+  <td><label>Sex:</label></td>
+  <td><label><input type="radio" id="male" name="gender" value="male" required>Male</label>
+  <label><input type="radio" id="female" name="gender" value="female" required>Female</label><br></td>
+  </tr>  
+  <tr>
+  <td><label>Department:</label>
+  <td><select required>
+    <option value="">--CHOOSE--</option>
+    <option value="123">CSE</option>
+    <option value="123">CSBS</option>
+    <option value="123">CSE(DS)</option>
+    <option value="123">CSE(IOT)</option>
+    <option value="123">CSE(AIML)</option>
+    <option value="123">IT</option>
+    <option value="123">ECE</option>
+    <option value="123">EEE</option>
+    <option value="123">MECH</option>
+    <option value="123">CIVIL</option>
+    <option value="123"+>CHE</option>
+  </select><br></td>
+  </tr>
+  <tr>
+  <td><label>Address</label></td>
+  <td><input type="text" required><br></td>
+  </tr>
+  <tr>
+  <td><label>Select Course:</label></td>
+  <td><label><input type="radio" id="mwa" name="subject" value="mwa" required>MWA</label>
+  <label><input type="radio" id="dm" name="subject" value="dm" required>Data Mining</label><br></td>
+  </tr><br>
+  <tr>
+  <td><input type="reset" value="Reset"></td>
+  <td><input type="submit" value="Submit"></td>
+  </tr>
+  </table>
+</form> 
+</body>
+</html>
+form.php:
+<?php
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $first = $_POST['fname'];
+    $last = $_POST['lname'];
+    $identity=$_POST['id'];
+    echo '<h2><i>Welcome dear, '.$last.' . '.$first.'!!<br></i></h2>';
+    echo '<h3><b>Your Unique ID is: '.$identity.'</b></h3>'; } ?>
+Output:
+
+c) Write a PHP Code to make database connection, Create Data Base in Mysql.
+DATABASES1.php:
+<?php
+$servername = "localhost";
+$username = "root";
+$password = '';
+$conn = new mysqli($servername, $username, $password);
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+$sql = "CREATE DATABASE MWA";
+if ($conn->query($sql) === TRUE) {
+  echo "Database created successfully";
+} else {
+  echo "Error creating database: " . $conn->error;
+}
+$conn->close();
+?>
+Output:
+
+d) Write a program in PHP to perform CRUD(Create, InseRt, Update, Delete operations) 
+CREATES1.php:
+<?php
+$hostname='localhost';
+$username='root';
+$password='';
+$database='MWA';
+$conn=new mysqli($hostname,$username,$password,$database);
+if($conn->connect_error){
+die('connection failed'.$conn->connect_error);
+}
+
+$sql = "CREATE TABLE DETAILS(
+Name VARCHAR(30),
+Email VARCHAR(30),
+Nptelcourse VARCHAR(50),
+Marks VARCHAR(10))";
+
+if ($conn->query($sql) === TRUE) {
+  echo "Table created successfully";
+} else {
+  echo "Error creating table: " . $conn->error;
+}
+$conn->close();
+?>
+Output:
+
+INSERTS1.php:
+<?php
+$hostname='localhost';
+$username='root';
+$password='';
+$database='MWA';
+$conn=new mysqli($hostname,$username,$password,$database);
+if($conn->connect_error){
+die('connection failed'.$conn->connect_error);
+}
+$sql = "insert into Details (Name,Email,Nptelcourse,Marks) values 
+('Ramesh’,’ramesh@gmail.com','IIOT','68'),
+(‘Suresh”,suresh@gmail.com', 'IIOT','65'),
+(‘Rao’rao@gmail.com','IIOT','75'),
+(‘Raju,’raju@gmail.com','IIOT','73'),
+$query=mysqli_query($conn,$sql);
+if($query) {
+  echo 'Details are inserted successfully';
+} else {
+  echo "Error creating table: " . $conn->error;
+}
+?>
+Output:
+
+UPDATES1.php:
+<?php
+    $hostname = 'localhost';
+    $username = 'root';
+    $password = '';
+    $database = 'MWA';
+    $conn = new mysqli($hostname, $username, $password, $database);
+    if ($conn->connect_error) {
+        die('Connection failed: ' . $conn->connect_error);
+    }
+    $sql = "UPDATE Details SET marks = '72' WHERE Name = 'Pujitha'";
+    if ($conn->query($sql) === TRUE) {
+        echo "Table updated successfully<br>";
+    } else {
+        echo "Error updating table: " . $conn->error . "<br>";
+    }
+?>
+Output:
+
+DELETES2.php:
+<?php
+$hostname='localhost';
+$username='root';
+$password='';
+$database="MWA";
+$conn=new mysqli($hostname,$username,$password,$database);
+if($conn->connect_error){
+die('connection failed'.$conn->connect_error);
+}
+$sql="DELETE FROM Details WHERE Name='Akhila'";
+if ($conn->query($sql) === TRUE) {
+        echo "Deleted successfully<br>";
+    } else {
+        echo "Error creating table: " . $conn->error . "<br>";
+    }
+?>
+Output:
+
+e) Study of Image Uploading in PHP and Design a form which uploads And Display Image in PHP
+image.html:
+<!DOCTYPE html>
+<html>
+<head>
+<title>Image Upload Form</title>
+</head>
+<body>
+<form action="upload.php" method="post" enctype="multipart/form-data">
+<label for="fileToUpload">Select image to upload:</label>
+<input type="file" name="fileToUpload" id="fileToUpload">
+<input type="submit" value="Upload Image" name="submit">
+</form>
+</body>
+</html>
+upload.php:
+<?php
+if (isset($_POST['submit'])) {
+    $fileName = $_FILES['fileToUpload']['name'];
+    $fileType = pathinfo($fileName, PATHINFO_EXTENSION);
+    if (!in_array($fileType, ['jpg', 'jpeg', 'png', 'gif'])) {
+        echo "File type is not supported.";
+        return;
+    }
+    $targetDir = 'uploads/';
+    move_uploaded_file($_FILES['fileToUpload']['tmp_name'], $targetDir . $fileName);
+    echo '<img src="' . $targetDir . $fileName . '">';
+}
+?>
+

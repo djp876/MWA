@@ -1,0 +1,83 @@
+//books.xml
+<catalogue>
+<book>
+<title>The Great Gatsby</title>
+<author>F. Scott Fitzgerald</author>
+<isbn>9780743273565</isbn>
+<publisher>Charles Scribner's Sons</publisher>
+<edition>1st Edition</edition>
+<price>$9.99</price>
+</book>
+<book>
+<title>To Kill a Mockingbird</title>
+<author>Harper Lee</author>
+<isbn>9780446310789</isbn>
+<publisher>HarperCollins</publisher>
+<edition>50th Anniversary Edition</edition>
+<price>$11.99</price>
+</book>
+<book>
+<title>Pride and Prejudice</title>
+<author>Jane Austen</author>
+<isbn>9780141439518</isbn>
+<publisher>Penguin Classics</publisher>
+<edition>Reprint Edition</edition>
+<price>$7.99</price>
+</book>
+<book>
+<title>1984</title>
+<author>George Orwell</author>
+<isbn>9780451524935</isbn>
+<publisher>Signet Classics</publisher>
+<edition>Centennial Edition</edition>
+<price>$8.99</price>
+</book>
+</catalogue>
+
+
+//books.xslt
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
+<xsl:template match="/">
+<html>
+<head>
+<title>Book Catalogue</title>
+<style> table { border-collapse: collapse; width: 100%; } th { background-color: grey; color: white; font-weight: bold; padding: 8px; } td { padding: 8px; } .author-column { color: blue; font-weight: bold; text-transform: uppercase; } </style>
+</head>
+<body>
+<h1>Book Catalogue</h1>
+<table>
+<tr>
+<th>Title</th>
+<th class="author-column">Author</th>
+<th>ISBN</th>
+<th>Publisher</th>
+<th>Edition</th>
+<th>Price</th>
+</tr>
+<xsl:for-each select="catalogue/book">
+<tr>
+<td>
+<xsl:value-of select="title"/>
+</td>
+<td class="author-column">
+<xsl:value-of select="author"/>
+</td>
+<td>
+<xsl:value-of select="isbn"/>
+</td>
+<td>
+<xsl:value-of select="publisher"/>
+</td>
+<td>
+<xsl:value-of select="edition"/>
+</td>
+<td>
+<xsl:value-of select="price"/>
+</td>
+</tr>
+</xsl:for-each>
+</table>
+</body>
+</html>
+</xsl:template>
+</xsl:stylesheet>

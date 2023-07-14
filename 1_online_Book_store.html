@@ -1,0 +1,247 @@
+// 1. Design the following static web pages required for an online book store web site.
+// Main.html:
+
+<html>
+<head>
+<style>
+h1{
+  color: #800080;
+} 
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+li {
+  float: left;
+}
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 15px 16px;
+  text-decoration: none;
+  font-size: 20;
+}
+li a:hover:not(.active) {
+  background-color:#ff8080 ;
+}
+.vertical-menu {
+  width: 200px;
+}
+.vertical-menu a {
+  background-color: #fff; 
+  color: black;
+  display: block;
+  padding: 12px;
+  text-decoration: none; 
+}
+
+.vertical-menu a:hover {
+  background-color: #ff8080;
+}
+.info{
+text-align:justify;
+}
+</style>
+</head>
+<body>
+<img src="https://rvrjcce.ac.in/examcell/results/batchpg20/images/RVRJC-Estd-2.jpg" alt="rvrlogo" width="100" height="100" align="left">
+<br>
+<h1 align="center">Scribbles and Scrolls</h1><br>
+<ul>
+  <li><a href="#">Home</a></li>
+  <li><a href="login.html">Login</a></li>
+  <li><a href="registration.html">Registration</a></li>
+  <li><a href="catalogue.html">Catalogue</a></li>
+  <li style="float:right"><a href="cart.html">Cart</a></li>
+</ul>
+<br>
+<div style="width: 100%;">
+        <div class="vertical-menu"; style="width: 10%; height: 100px; float: left;"> 
+<a href="csbs.html">CSBS</a>
+<a href="csds.html">CSDS</a>
+<a href="cse.html">CSE</a>
+<a href="csm.html">CSM</a>
+<a href="cso.html">CSO</a>
+<a href="it.html">IT</a>
+        </div>
+<div class="info"; style="margin-left: 15%; margin-right:5%; height: 200px;font-family:Georgia; font-style:italic;"> 
+Welcome to our spell binding haven for ebook fanatics – a captivating sanctuary where tales come to lifestyles and imagination knows no bounds. Step into our pleasant bookshop, a treasure trove nestled within the heart of the town, wherein the scent of aged pages and the smooth rustling of books beckon you to embark on a literary adventure.
+As you enter, you'll be captivated with the aid of the comfortable environment, adorned with rustic wood shelves that stretch from ground to ceiling, weighted down with an outstanding collection of books spanning numerous genres and eras. Lose yourself within the maze of fascinating stories, from conventional literary masterpieces to modern bestsellers, wherein every page holds the electricity to move you to distant lands, resolve mysteries, and explore the depths of the human spirit.
+Our passionate and knowledgeable group of workers are avid e book lovers who eagerly proportion their tips and insights, guiding you on a customised journey thru the substantial realm of literature. Whether you are looking for a interesting mystery, a notion-upsetting philosophical discourse, or a heartwarming tale of affection and friendship, our team is dedicated to assisting you discover the correct book in order to touch your soul and ignite your imagination.
+Bask within the quiet sanctuary of our reading nook, nestled in a at ease corner bathed in herbal mild, wherein you could curl up in an opulent armchair and immerse yourself in the fascinating narratives that unfold inside the pages of your preferred e-book. Take pleasure in a cup of aromatic espresso or tea from our delightful café, as the aroma mingles harmoniously with the comforting presence of literature, growing an environment that embraces each the thoughts and the senses.
+Past our expansive series of books, we additionally host an array of literary events, from author signings and e book membership discussions to storytelling periods for youngsters, fostering a vibrant community of ebook aficionados who proportion a deep appreciation for the written phrase. Join us in this thrilling journey of literary exploration, where like-minded individuals collect to rejoice the splendor and electricity of storytelling.
+Whether you're a pro bibliophile or a curious soul dipping your ft into the arena of books, our book shop welcomes you with open palms. Come and embark on an unforgettable voyage of discovery, wherein each visit guarantees to awaken your creativeness, encourage your thoughts, and go away you yearning for the subsequent chapter. Welcome to our haven of literary wonders – your next literary journey awaits!
+</div>
+    </div>
+</body>
+</html>
+
+//login.html:
+
+<html>
+<head>
+<style>
+h1{
+  color: #800080;
+} 
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+li {
+  float: left;
+}
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 15px 16px;
+  text-decoration: none;
+  font-size: 20;
+}
+li a:hover:not(.active) {
+  background-color:#ff8080 ;
+}
+
+
+.vertical-menu {
+  width: 200px;
+}
+.vertical-menu a {
+  background-color: #fff; 
+  color: black;
+  display: block;
+  padding: 12px;
+  text-decoration: none; 
+}
+.vertical-menu a:hover {
+  background-color: #ff8080;
+}
+
+
+.label{
+    color: #000000;
+    font-size: 20px;
+}
+span{
+    color: white;
+    font-size: 17px;
+}
+input[type=submit] {
+  width: 30%;
+  background-color:#70db70;
+  color: white;
+  padding: 14px 10px;
+  margin: 5px 0;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+ font-size:15px;
+}
+input[type=submit]:hover {
+  background-color: #339900;
+  color: black;
+}
+input[type=reset] {
+  width: 30%;
+  background-color:#ff944d;
+  color: white;
+  padding: 14px 20px;
+  margin: 5px 0;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size:15px;
+}
+
+
+input[type=reset]:hover {
+  background-color: #ff6600;
+  color:black;
+}
+label {
+  color: black;
+  padding: 8px;
+  font-size:20px;
+}
+input[type=email]{
+  width: 75%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  box-sizing: border-box;
+  font-size:15px;
+}
+input[type=password]{
+  width: 75%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  box-sizing: border-box;
+ font-size:15px;
+}
+</style>
+</head>
+<body>
+<img src="https://rvrjcce.ac.in/examcell/results/batchpg20/images/RVRJC-Estd-2.jpg" alt="rvrlogo" width="100" height="100" align="left">
+<br>
+<h1 align="center">Scribbles and Scrolls</h1><br>
+<ul>
+  <li><a href="main.html">Home</a></li>
+  <li><a href="#">Login</a></li>
+  <li><a href="registration.html">Registration</a></li>
+  <li><a href="catalogue.html">Catalogue</a></li>
+  <li style="float:right"><a href="cart.html">Cart</a></li>
+</ul>
+<br>
+<div style="width: 100%;">
+<div class="vertical-menu"; style="width: 10%; height: 100px; float: left;"> 
+<a href="csbs.html">CSBS</a>
+<a href="csds.html">CSDS</a>
+<a href="cse.html">CSE</a>
+<a href="csm.html">CSM</a>
+<a href="cso.html">CSO</a>
+<a href="it.html">IT</a>
+</div>
+    <div class="login">
+    <form id="login" name="myform" onsubmit="return validateform()">
+        <table frame="box" align="center">
+        <tr> 
+        <td><label>Login ID:</label></td>
+        <td><input type="email" name="Uname" id="Uname" placeholder="Email" required></td>
+        </tr>
+        <tr>
+        <td><label>Password:</label></td>
+        <td><input type="Password" name="Pass" id="Pass" placeholder="Password" required></td>
+        </tr><br>
+        <tr>
+        <td colspan="2" align="center"><input type="submit" value="SUBMIT">&nbsp;&nbsp;
+                                                             <input type="reset" value="RESET"></td>
+        </tr>
+        </table>
+    </form>
+</div>
+<script>
+function validateform(){  
+var password=document.myform.Pass.value;  
+if(password.length<6){  
+  alert("Password must be at least 6 characters long.");  
+  return false;  
+  }  
+}  
+</script>
+</div>
+</body>
+</html>
+

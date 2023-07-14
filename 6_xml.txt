@@ -81,3 +81,12 @@
 </html>
 </xsl:template>
 </xsl:stylesheet>
+
+//dtd
+<!ELEMENT Catalogue (Book)*>
+<!ELEMENT Book (Title, Author, Publication ,Edition, ISBN, Price)>
+<!ELEMENT Title (#PCDATA)>
+<!ELEMENT Publication (#PCDATA)>
+<!ELEMENT Edition (#PCDATA)>
+<!ELEMENT ISBN (#PCDATA)>
+<!ELEMENT Price (#PCDATA)>
